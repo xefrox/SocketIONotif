@@ -14,3 +14,8 @@ Run the Project
 node index.js
 ```
 
+run in your browser
+```
+localhost:3000
+```
+
