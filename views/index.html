@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testing</title>
+</head>
+<body>
+	<script src="https://cdn.socket.io/socket.io-2.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	<h2>Send Notification</h2>
+	<script>
+		var socket = io.connect('/');
+	</script>
+
+	<form onsubmit="return doSomething();" class="my-form">
+		<label for="topic">Topic :</label><br>
+	  	<input type="text" id="topic" name="topic" placeholder="Topic"><br><br>
+	  	<label for="topic">Body :</label><br>
+	  	<input type="text" id="body" name="body" placeholder="Body"><br><br>
+	  	<input type="submit" value="Send">
+	</form>
+	  <script>
+		function doSomething() {
+			var topic = document.getElementById('topic').value;
+			var body = document.getElementById('body').value;
+			var text = 
+				'{ "userName": "John", "messageContent":\"'+body+'\", "roomName":\"'+topic+'\"}'; 
+		    // console.log(jsonData);
+			socket.emit("newMessage", text); 
+
+
+		    return false;
+		}
+		</script>
+
+</form> 
+</body>
+</html>
